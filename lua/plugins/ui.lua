@@ -71,7 +71,7 @@ return {
     },
     opts = {
       options = {
-        mode = "tabs",
+        mode = "buffers",
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
@@ -186,9 +186,10 @@ return {
           group_empty = true,
         },
         filters = {
-          dotfiles = true,
+          dotfiles = false,
           custom = {
             "node_modules/.*",
+            ".env",
           },
         },
         log = {

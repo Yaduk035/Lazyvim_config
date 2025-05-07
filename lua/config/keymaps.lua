@@ -24,9 +24,9 @@ keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
 
 -- Tabs
 keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-keymap.set("n", "tw", ":tabclose<Return>", opts)
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+keymap.set("n", "tw", ":bd<Return>", opts)
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
@@ -48,3 +48,8 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left in insert mode" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right in insert mode" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down in insert mode" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move up in insert mode" })
