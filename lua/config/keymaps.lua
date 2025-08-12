@@ -53,3 +53,7 @@ vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left in insert mode" })
 vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right in insert mode" })
 vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down in insert mode" })
 vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move up in insert mode" })
+
+-- NvChad-style paste: don't overwrite clipboard when pasting in visual mode
+vim.keymap.set("x", "p", [["_dP]], { noremap = true, silent = true })
+vim.keymap.set("x", "P", [["_dP]], { noremap = true, silent = true })
