@@ -122,6 +122,12 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    config = function()
+      vim.g.lazygit_floating_window_scaling_factor = 0.9 -- shrink the UI
+      -- or override dimensions directly:
+      vim.g.lazygit_floating_window_winblend = 0 -- transparency
+      vim.g.lazygit_floating_window_border_chars = { "╭", "╮", "╰", "╯" }
+    end,
   },
   {
     "kristijanhusak/vim-dadbod-ui",
