@@ -21,7 +21,8 @@ return {
   -- Refactoring tool
   {
     "ThePrimeagen/refactoring.nvim",
-    event = "VeryLazy",
+    -- Use 'Lazy' instead of 'VeryLazy' to ensure it's available
+    -- as soon as you hit the keybind
     keys = {
       {
         "<leader>r",
@@ -33,9 +34,21 @@ return {
         mode = "v",
         noremap = true,
         silent = true,
-        expr = false,
       },
     },
+    -- Force plenary to be available
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
     opts = {},
+    config = function(_, opts)
+      -- Explicitly require plenary before setup to confirm it's in the path
+      local has_plenary, _ = pcall(require, "plenary")
+      if not has_plenary then
+        return
+      end
+      require("refactoring").setup(opts)
+    end,
   },
 }
