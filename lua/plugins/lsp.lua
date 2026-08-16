@@ -22,15 +22,8 @@ return {
       ---@type lspconfig.options
       servers = {
         cssls = {},
-        tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-        },
-        tsserver = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
+        tailwindcss = {},
+        ts_ls = {
           single_file_support = false,
           settings = {
             typescript = {
@@ -128,21 +121,6 @@ return {
     },
   },
   {
-    "nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lua",
-      "onsails/lspkind-nvim",
-    },
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
-  },
-  {
     "rafamadriz/friendly-snippets", -- Added snippets for Tailwind CSS
     event = "InsertEnter",
   },
@@ -162,19 +140,6 @@ return {
     ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       require("nvim-ts-autotag").setup()
-    end,
-  },
-  {
-    "rafamadriz/friendly-snippets",
-    event = "InsertEnter",
-  },
-  {
-    "numToStr/Comment.nvim",
-    dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
-    config = function()
-      require("Comment").setup({
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
     end,
   },
 

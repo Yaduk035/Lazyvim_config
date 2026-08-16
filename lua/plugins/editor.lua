@@ -1,13 +1,6 @@
 return {
-  -- Hihglight colors
-  {
-    "nvim-mini/mini.hipatterns",
-    event = "BufReadPre",
-    opts = {},
-  },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
     priority = 1000,
     dependencies = {
       {
